@@ -1,0 +1,552 @@
+.dashboard {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    flex: 1;
+    .leftPanel {
+        width: 800px;
+        //background-color: blue;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .mapContainer {
+            flex: 1;
+            //background-color: red;
+            display: flex;
+            flex-direction: column;
+            .titleWrap {
+                height: 50px;
+                background-color: white;
+                border-radius: 15px 15px 0 0px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 20px;
+
+                .title {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                .titleActions {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .actionBtn {
+                        padding: 6px 14px;
+                        border: 1px solid #ddd;
+                        background: white;
+                        border-radius: 20px;
+                        font-size: 13px;
+                        cursor: pointer;
+                        color: #666;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            background-color: #f5f5f5;
+                        }
+
+                        &.active {
+                            background-color: rgba(156, 39, 176, 1);
+                            color: white;
+                            border-color: rgba(156, 39, 176, 1);
+                        }
+                    }
+                }
+            }
+            .mapWrap {
+            flex: 1;
+            border-radius: 0 0 15px 15px;
+            background-color: rgb(194, 194, 194);
+            }
+        }
+        .missionContainer {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .titleWrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .titleArea {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 10px;
+
+                    .title {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+
+                    .subText {
+                        font-size: 12px;
+                        color: #999;
+                    }
+                }
+
+                .moreBtn {
+                    padding: 6px 14px;
+                    border: 1px solid #ddd;
+                    background: white;
+                    border-radius: 20px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    color: #666;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+            }
+
+            .cardWrap {
+                flex: 1;
+            }
+        }
+    }
+    .rightPanel {
+        width: 500px;
+        //flex: 1;
+        //background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        .actionWrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            .title {
+                color: #222;
+                font-family: "Pretendard";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                letter-spacing: -0.16px;
+            }
+            .buttonWrap {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                button {
+                    padding: 5px 8px;
+                    border-radius: 10px;
+                    border: 1px solid #D5D5D5;
+                    background: #FFF;
+                }
+            }
+        }
+        .dateWrap {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 10px;
+
+            .titleWrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+
+                .title {
+                    color: #222;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+
+                .periodActions {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    .periodBtn {
+                        padding: 5px 12px;
+                        border: 1px solid #ddd;
+                        background: white;
+                        border-radius: 15px;
+                        font-size: 12px;
+                        cursor: pointer;
+                        color: #666;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            background-color: #f5f5f5;
+                        }
+
+                        &.active {
+                            background-color: rgba(156, 39, 176, 1);
+                            color: white;
+                            border-color: rgba(156, 39, 176, 1);
+                        }
+                    }
+                }
+            }
+
+            .statsWrap {
+                display: flex;
+                gap: 10px;
+
+                .statCard {
+                    flex: 1;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 12px 15px;
+                    background: #f9f9f9;
+                    border-radius: 10px;
+                    border: 1px solid #eee;
+
+                    .statLabel {
+                        font-size: 13px;
+                        color: #666;
+                    }
+
+                    .statValue {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+                }
+            }
+        }
+
+        .totalWrap {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 10px;
+
+            .title {
+                display: block;
+                color: #222;
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 15px;
+            }
+
+            .statsGrid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+
+                .statCard {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 12px;
+                    background: #f9f9f9;
+                    border-radius: 10px;
+                    border: 1px solid #eee;
+
+                    &.green {
+                        background: #e8f5e9;
+                        border-color: #c8e6c9;
+                    }
+
+                    &.yellow {
+                        background: #fff8e1;
+                        border-color: #ffecb3;
+                    }
+
+                    .statLabel {
+                        font-size: 12px;
+                        color: #666;
+                    }
+
+                    .statValue {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+                }
+            }
+        }
+
+        .alertWrap {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            .tabWrap {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 15px;
+
+                .tabBtn {
+                    flex: 1;
+                    padding: 8px 16px;
+                    border: 1px solid #E5E4E4;
+                    background: transparent;
+                    font-size: 13px;
+                    cursor: pointer;
+                    color: #999;
+                    border-radius: 10px;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+
+                    &.active {
+                        background-color: rgba(156, 39, 176, 1);
+                        color: white;
+                    }
+                }
+            }
+
+            .alertContent {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+
+                .alertHeader {
+                    margin-bottom: 10px;
+
+                    .title {
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+                }
+
+                .alertTable {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+
+                    .tableHeader {
+                        display: flex;
+                        padding: 10px 0;
+                        border-bottom: 1px solid #eee;
+
+                        .col {
+                            font-size: 12px;
+                            font-weight: 500;
+                            color: #999;
+
+                            &.time { width: 80px; }
+                            &.status { width: 70px; }
+                            &.desc { flex: 1; }
+                        }
+                    }
+
+                    .tableBody {
+                        flex: 1;
+                        overflow-y: auto;
+
+                        .tableRow {
+                            display: flex;
+                            padding: 10px 0;
+                            border-bottom: 1px solid #f5f5f5;
+
+                            .col {
+                                font-size: 12px;
+                                color: #666;
+
+                                &.time { 
+                                    width: 80px; 
+                                    color: #999;
+                                }
+                                &.status { 
+                                    width: 70px;
+                                    font-weight: 500;
+                                    font-size: 11px;
+
+                                    &.error {
+                                        color: #e53935;
+                                    }
+                                    &.alarm {
+                                        color: #fb8c00;
+                                    }
+                                    &.info {
+                                        color: #999;
+                                    }
+                                }
+                                &.desc { 
+                                    flex: 1;
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // 시스템 상태 패널 스타일
+                &.systemPanel {
+                    .systemTable {
+                        padding: 10px 0;
+
+                        .systemRow {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 12px 16px;
+                            border-bottom: 1px solid #f0f0f0;
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            .systemLabel {
+                                font-size: 13px;
+                                color: #666;
+                            }
+
+                            .systemValue {
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+
+                // 요약지표 상세 스타일
+                &.summaryPanel {
+                    .summaryHeader {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 12px 16px;
+                        border-bottom: 1px solid #f0f0f0;
+
+                        .title {
+                            font-size: 13px;
+                            font-weight: 500;
+                            color: #333;
+                        }
+
+                        .legendWrap {
+                            display: flex;
+                            gap: 12px;
+
+                            .legend {
+                                display: flex;
+                                align-items: center;
+                                gap: 4px;
+                                font-size: 11px;
+                                color: #666;
+
+                                .dot {
+                                    width: 8px;
+                                    height: 8px;
+                                    border-radius: 50%;
+
+                                    &.purple {
+                                        background-color: rgba(156, 39, 176, 1);
+                                    }
+                                    &.orange {
+                                        background-color: #fb8c00;
+                                    }
+                                    &.green {
+                                        background-color: #4caf50;
+                                    }
+                                    &.red {
+                                        background-color: #e53935;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .summaryContent {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 16px;
+                        padding: 12px 0;
+                        flex: 1;
+                        overflow-y: auto;
+
+                        .summarySection {
+                            .sectionHeader {
+                                font-size: 12px;
+                                font-weight: 500;
+                                padding: 8px 16px;
+                                margin-bottom: 8px;
+
+                                &.purple {
+                                    background-color: rgba(156, 39, 176, 0.1);
+                                    color: rgba(156, 39, 176, 1);
+                                }
+                                &.gray {
+                                    background-color: #f5f5f5;
+                                    color: #666;
+                                }
+                            }
+
+                            .missionList {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 8px;
+                                padding: 0 16px;
+
+                                .missionItem {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    padding: 10px 12px;
+                                    background-color: #fafafa;
+                                    border-radius: 6px;
+
+                                    .missionInfo {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 4px;
+
+                                        .missionName {
+                                            font-size: 13px;
+                                            font-weight: 500;
+                                            color: #333;
+                                        }
+
+                                        .missionId {
+                                            font-size: 11px;
+                                            color: #999;
+                                        }
+                                    }
+
+                                    .missionStatus {
+                                        font-size: 11px;
+                                        font-weight: 500;
+                                        padding: 4px 10px;
+                                        border-radius: 12px;
+
+                                        &.warning {
+                                            background-color: rgba(251, 140, 0, 0.1);
+                                            color: #fb8c00;
+                                        }
+                                        &.running {
+                                            background-color: rgba(156, 39, 176, 0.1);
+                                            color: rgba(156, 39, 176, 1);
+                                        }
+                                        &.normal {
+                                            background-color: rgba(76, 175, 80, 0.1);
+                                            color: #4caf50;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

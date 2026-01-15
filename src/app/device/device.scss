@@ -1,0 +1,36 @@
+.device {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    
+    .menu-nav {
+        display: flex;
+        gap: 10px;
+        flex-shrink: 0;
+        
+        button {
+            border-radius: 30px;
+            padding: 10px 15px;
+            color: #A0A0A0;
+            text-align: center;
+            font-family: "Pretendard";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            border: none;
+            background-color: white;
+            cursor: pointer;
+
+            &.active {
+                background: #9C27B0;
+                color: white;
+            }
+        }
+    }
+    
+    .container {
+        flex: 1;
+    }
+}

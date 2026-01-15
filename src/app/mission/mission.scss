@@ -1,0 +1,547 @@
+.mission {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+
+    .leftPanel {
+        flex: 1;
+        background-color: #fff;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .headerWrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+
+            .searchBox {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background-color: #f5f5f5;
+                border-radius: 8px;
+                padding: 8px 12px;
+                flex: 1;
+                max-width: 280px;
+
+                .searchIcon {
+                    font-size: 14px;
+                    color: #999;
+                }
+
+                .searchInput {
+                    border: none;
+                    background: transparent;
+                    outline: none;
+                    font-size: 13px;
+                    color: #333;
+                    width: 100%;
+
+                    &::placeholder {
+                        color: #999;
+                    }
+                }
+            }
+
+            .filterBox {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .statusSelect {
+                    padding: 8px 12px;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 8px;
+                    font-size: 13px;
+                    color: #333;
+                    background-color: #fff;
+                    cursor: pointer;
+                    outline: none;
+
+                    &:focus {
+                        border-color: rgba(156, 39, 176, 0.5);
+                    }
+                }
+
+                .runningBtn {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 12px;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 8px;
+                    font-size: 13px;
+                    color: #333;
+                    background-color: #fff;
+                    cursor: pointer;
+
+                    .dot {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        background-color: #4caf50;
+                    }
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+            }
+
+            .createBtn {
+                margin-left: auto;
+                padding: 8px 16px;
+                background-color: rgba(156, 39, 176, 1);
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgba(156, 39, 176, 0.9);
+                }
+            }
+        }
+
+        .tableWrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            .missionTable {
+                width: 100%;
+                border-collapse: collapse;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+
+                thead {
+                    display: table;
+                    width: 100%;
+                    table-layout: fixed;
+                    flex-shrink: 0;
+
+                    tr {
+                        background-color: #fafafa;
+                        
+                        th {
+                            padding: 12px 16px;
+                            text-align: center;
+                            font-size: 12px;
+                            font-weight: 700;
+                            color: #666;
+                            border-bottom: 1px solid #f0f0f0;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+
+                tbody {
+                    display: block;
+                    flex: 1;
+                    overflow-y: auto;
+
+                    tr {
+                        display: table;
+                        width: 100%;
+                        table-layout: fixed;
+                        border-bottom: 1px solid #f5f5f5;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #fafafa;
+                        }
+
+                        &.selected {
+                            background-color: rgba(156, 39, 176, 0.05);
+                            
+                            td.missionId {
+                                color: rgba(156, 39, 176, 1);
+                            }
+                        }
+
+                        td {
+                            padding: 5px 16px;
+                            font-size: 13px;
+                            color: #333;
+                            vertical-align: middle;
+                            text-align: center;
+                            &.missionId {
+                                font-weight: 500;
+                                color: #333;
+                            }
+
+                            &.missionName {
+                                color: #666;
+                            }
+
+                            .statusBadge {
+                                display: inline-block;
+                                padding: 4px 10px;
+                                border-radius: 12px;
+                                font-size: 11px;
+                                font-weight: 500;
+
+                                &.progress {
+                                    background-color: rgba(33, 150, 243, 0.1);
+                                    color: #2196f3;
+                                }
+
+                                &.wait {
+                                    background-color: rgba(158, 158, 158, 0.1);
+                                    color: #9e9e9e;
+                                }
+
+                                &.complete {
+                                    background-color: rgba(76, 175, 80, 0.1);
+                                    color: #4caf50;
+                                }
+
+                                &.stop {
+                                    background-color: rgba(255, 193, 7, 0.1);
+                                    color: #ffc107;
+                                }
+
+                                &.cancel {
+                                    background-color: rgba(244, 67, 54, 0.1);
+                                    color: #f44336;
+                                }
+
+                                &.reserve {
+                                    background-color: rgba(156, 39, 176, 0.1);
+                                    color: rgba(156, 39, 176, 1);
+                                }
+                            }
+
+                            &.progressCell {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 2px;
+
+                                .progressValue {
+                                    font-weight: 500;
+                                    color: #333;
+
+                                    &.zero {
+                                        color: #999;
+                                    }
+
+                                    &.half {
+                                        color: #ffc107;
+                                    }
+
+                                    &.full {
+                                        color: #4caf50;
+                                    }
+                                }
+
+                                .progressDetail {
+                                    font-size: 11px;
+                                    color: #999;
+                                }
+                            }
+
+                            &.deviceCell {
+                                font-size: 12px;
+                                color: #666;
+                            }
+
+                            &.scheduleCell,
+                            &.updateCell {
+                                font-size: 12px;
+                                color: #999;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tableFooter {
+                padding: 16px 20px;
+                border-top: 1px solid #f0f0f0;
+                margin-top: auto;
+
+                .totalCount {
+                    font-size: 13px;
+                    color: #666;
+                }
+            }
+        }
+    }
+
+    .rightPanel {
+        width: 700px;
+        background-color: #fff;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .emptyState {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .detailHeader {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            //border-bottom: 1px solid #f0f0f0;
+
+            .titleSection {
+                .missionTitle {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #333;
+                    margin: 0 0 4px 0;
+                }
+
+                .missionMeta {
+                    font-size: 12px;
+                    color: #999;
+                }
+            }
+
+            .actionBtns {
+                display: flex;
+                gap: 8px;
+
+                .actionBtn {
+                    padding: 6px 14px;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 15px;
+                    background-color: #fff;
+                    font-size: 12px;
+                    color: #333;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+
+                    &.delete {
+                        background-color: #e53935;
+                        color: #fff;
+                        border-color: #e53935;
+
+                        &:hover {
+                            background-color: #c62828;
+                        }
+                    }
+                }
+            }
+        }
+
+        .detailContent {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+
+            .timelineSection {
+                flex: 1;
+                padding: 16px 20px;
+                //border-right: 1px solid #f0f0f0;
+                overflow-y: auto;
+
+                .sectionTitle {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 16px;
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: #333;
+
+                    .taskInfo {
+                        font-size: 11px;
+                        font-weight: 400;
+                        color: #999;
+                    }
+                }
+
+                .timeline {
+                    display: flex;
+                    flex-direction: column;
+
+                    .taskItem {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .taskCard {
+                            width: 100%;
+                            padding: 28px 14px;
+                            border-radius: 8px;
+                            border: 2px solid #e0e0e0;
+
+                            &.complete {
+                                border-color: #4caf50;
+                                background-color: #4caf50;
+                                color: #fff;
+                                .taskHeader .taskName,
+                                .taskDesc {
+                                    color: #fff;
+                                }
+
+                                .taskStatus {
+                                    //background-color: rgba(255, 255, 255, 0.2);
+                                    color: #fff;
+                                }
+                            }
+
+                            &.progress {
+                                border-color: #4caf50;
+                                background-color: rgba(76, 175, 80, 0.05);
+                                color: #4caf50;
+                            }
+
+                            &.wait {
+                                border-color: #e0e0e0;
+                                background-color: #fafafa;
+                            }
+
+                            .taskHeader {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 6px;
+
+                                .taskName {
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: #333;
+                                }
+
+                                .taskStatus {
+                                    font-size: 12px;
+                                    color: #666;
+                                    font-weight: 700;
+                                    &.progress {
+                                        color: #4caf50;
+                                    }
+
+                                    &.complete {
+                                        color: #fff;
+                                    }
+
+                                    &.wait {
+                                        color: #999;
+                                    }
+                                }
+                            }
+
+                            .taskDesc {
+                                font-size: 11px;
+                                color: #666;
+                                margin-bottom: 10px;
+                            }
+
+                            .taskDevices {
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 6px;
+
+                                .deviceTag {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                    padding: 4px 10px;
+                                    background-color: #fff;
+                                    border: 1px solid #e0e0e0;
+                                    border-radius: 14px;
+                                    font-size: 11px;
+                                    color: #666;
+
+                                    .deviceIcon {
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .connector {
+                            padding: 8px 0;
+                            
+                            .arrow {
+                                font-size: 20px;
+                                color: #000000;
+                                font-weight: 700;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+
+            .logSection {
+                width: 280px;
+                padding: 16px 20px;
+                overflow-y: auto;
+
+                .sectionTitle {
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: #333;
+                    margin-bottom: 12px;
+                }
+
+                .logTable {
+                    .logHeader {
+                        display: flex;
+                        padding: 8px 0;
+                        border-bottom: 1px solid #f0f0f0;
+
+                        .col {
+                            font-size: 11px;
+                            font-weight: 700;
+                            color: #999;
+
+                            &.time {
+                                width: 110px;
+                            }
+
+                            &.desc {
+                                flex: 1;
+                            }
+                        }
+                    }
+
+                    .logBody {
+                        .logRow {
+                            display: flex;
+                            padding: 10px 0;
+                            border-bottom: 1px solid #f5f5f5;
+
+                            .col {
+                                font-size: 12px;
+
+                                &.time {
+                                    width: 110px;
+                                    color: #999;
+                                }
+
+                                &.desc {
+                                    flex: 1;
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

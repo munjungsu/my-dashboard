@@ -1,0 +1,335 @@
+.device_detail {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    .leftPanel {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 12px;
+        //flex: 1;
+        width: 650px;
+        .headerWrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+
+            .searchBox {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background-color: #f5f5f5;
+                border-radius: 15px;
+                padding: 8px 12px;
+                width: 250px;
+
+                .searchIcon {
+                    font-size: 14px;
+                    color: #999;
+                }
+
+                .searchInput {
+                    border: none;
+                    background: transparent;
+                    outline: none;
+                    font-size: 13px;
+                    color: #333;
+                    width: 100%;
+
+                    &::placeholder {
+                        color: #999;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .registerBtn {
+                padding: 8px 16px;
+                background-color: rgba(156, 39, 176, 1);
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgba(156, 39, 176, 0.9);
+                }
+            }
+        }
+
+        .tableWrap {
+            .deviceTable {
+                width: 100%;
+                border-collapse: collapse;
+
+                thead {
+                    tr {
+                        th {
+                            padding: 12px 16px;
+                            text-align: center;
+                            font-size: 12px;
+                            font-weight: 600;
+                            color: #666;
+                            border-bottom: 3px solid #f0f0f0;
+                            white-space: nowrap;
+                            background-color: #fff;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        border-bottom: 1px solid #f5f5f5;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #fafafa;
+                        }
+
+                        &.selected {
+                            background-color: rgba(156, 39, 176, 0.05);
+
+                            td.deviceId {
+                                color: rgba(156, 39, 176, 1);
+                            }
+                        }
+
+                        td {
+                            padding: 8px 16px;
+                            font-size: 13px;
+                            color: #222;
+                            vertical-align: middle;
+                            text-align: center;
+                            
+                            &.deviceId {
+                                font-weight: 500;
+                                color: #222;
+                            }
+
+                            &.modelName {
+                                color: #222;
+                            }
+
+                            .statusText {
+                                font-size: 13px;
+                                font-weight: 700;
+
+                                &.move {
+                                    color: rgba(156, 39, 176, 1);
+                                }
+
+                                &.charging {
+                                    color: #222;
+                                }
+
+                                &.stop {
+                                    color: #fb8c00;
+                                }
+
+                                &.error {
+                                    color: #e53935;
+                                }
+
+                                &.ready {
+                                    color: #333;
+                                }
+
+                                &.alarm {
+                                    color: #fb8c00;
+                                }
+                            }
+
+                            &.group {
+                                color: #222;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .tableFooter {
+            padding: 16px 20px;
+            border-top: 1px solid #f0f0f0;
+
+            .totalCount {
+                font-size: 13px;
+                color: #666;
+            }
+        }
+    }
+
+    .rightPanel {
+        flex: 1;
+        background-color: #fff;
+        border-radius: 12px;
+        overflow-y: auto;
+
+        .emptyState {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .detailContent {
+            padding: 24px 30px;
+
+            .panelTitle {
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 16px;
+            }
+
+            .deviceId {
+                font-size: 22px;
+                font-weight: 700;
+                color: #222;
+                margin-bottom: 10px;
+            }
+
+            .infoSection, .locationSection {
+                margin-bottom: 10px;
+
+                .sectionTitle {
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: #666;
+                    margin-bottom: 12px;
+                    padding-bottom: 8px;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+
+                .infoRow {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 5px 0;
+                    border-bottom: 1px solid #f5f5f5;
+
+                    .label {
+                        font-size: 13px;
+                        color: #666;
+                    }
+
+                    .value {
+                        font-size: 13px;
+                        color: #222;
+                        font-weight: 500;
+                    }
+
+                    .selectInput {
+                        padding: 6px 12px;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 4px;
+                        font-size: 13px;
+                        color: #333;
+                        background-color: #fff;
+                        min-width: 150px;
+                        cursor: pointer;
+
+                        &:focus {
+                            outline: none;
+                            border-color: rgba(156, 39, 176, 0.5);
+                        }
+                    }
+                }
+            }
+
+            .locationSection {
+                .locationRow {
+                    display: flex;
+                    gap: 40px;
+
+                    .locationItem {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+
+                        .label {
+                            font-size: 13px;
+                            color: #666;
+                        }
+
+                        .value {
+                            font-size: 13px;
+                            color: #222;
+                            font-weight: 500;
+                        }
+
+                        .selectInput {
+                            padding: 6px 12px;
+                            border: 1px solid #e0e0e0;
+                            border-radius: 4px;
+                            font-size: 13px;
+                            color: #333;
+                            background-color: #fff;
+                            min-width: 180px;
+                            cursor: pointer;
+
+                            &:focus {
+                                outline: none;
+                                border-color: rgba(156, 39, 176, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mapSection {
+                //margin-bottom: 24px;
+
+                .mapPlaceholder {
+                    width: 100%;
+                    height: 280px;
+                    background-color: #e0e0e0;
+                    border-radius: 8px;
+                }
+            }
+
+            .buttonWrap {
+                display: flex;
+                justify-content: flex-end;
+                gap: 12px;
+                padding-top: 16px;
+
+                .cancelBtn {
+                    padding: 10px 24px;
+                    background-color: #fff;
+                    color: #666;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 8px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+                }
+
+                .saveBtn {
+                    padding: 10px 24px;
+                    background-color: rgba(156, 39, 176, 1);
+                    color: #fff;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgba(156, 39, 176, 0.9);
+                    }
+                }
+            }
+        }
+    }
+}
