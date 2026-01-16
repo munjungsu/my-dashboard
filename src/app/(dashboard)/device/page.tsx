@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
 import './device.scss';
-import DeviceList from '../ui/device/device_list';
-import DeviceDetail from '../ui/device/device_detail';
-import DeviceGroup from '../ui/device/device_group';
-import { Device } from '../types/type';
+import DeviceList from '../../ui/device/device_list';
+import DeviceDetail from '../../ui/device/device_detail';
+import DeviceGroup from '../../ui/device/device_group';
+import { Device } from '../../types/type';
 
 const deviceData: Device[] = [
     { id: 'AMR-A01-0001', modelName: 'AMR (Zone A-1)', status: 'Move', statusClass: 'move', currentLocation: 'AREA_A_node_105', groupId: 'A001', group: 'A동 1층 그룹' },

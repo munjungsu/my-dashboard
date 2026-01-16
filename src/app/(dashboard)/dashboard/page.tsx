@@ -1,6 +1,6 @@
 'use client';
 import './dashboard.scss';
-import { CardWrapper } from '../ui/dashboard/cards';
+import { CardWrapper } from '../../ui/dashboard/cards';
 import { useState } from 'react';
 
 const Page = () => {
