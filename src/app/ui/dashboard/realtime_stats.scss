@@ -1,0 +1,63 @@
+.realtimeStats {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+
+    .title {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 16px;
+    }
+
+    .statsGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+
+        .statCard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fafafa;
+            border-radius: 8px;
+            padding: 10px 12px;
+
+            .statLabel {
+                font-size: 12px;
+                color: #666;
+            }
+
+            .statValue {
+                font-size: 20px;
+                font-weight: 700;
+                color: #333;
+            }
+
+            &.green {
+                background-color: #E8F5E9;
+
+                .statValue {
+                    color: #4CAF50;
+                }
+            }
+
+            &.yellow {
+                background-color: #FFF8E1;
+
+                .statValue {
+                    color: #FFA000;
+                }
+            }
+
+            &.red {
+                background-color: #FFEBEE;
+
+                .statValue {
+                    color: #F44336;
+                }
+            }
+        }
+    }
+}

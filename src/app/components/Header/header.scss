@@ -47,7 +47,14 @@
         display: flex;
         align-items: center;
         gap: 15px;
-
+        button {
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: white;
+            background-color: #9C27B0;
+            border: none;
+            cursor: pointer;
+        }
         .notificationIcon {
             width: 24px;
             height: 24px;

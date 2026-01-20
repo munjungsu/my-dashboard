@@ -1,0 +1,274 @@
+.recentEvents {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .tabWrap {
+        display: flex;
+        border-bottom: 1px solid #f0f0f0;
+
+        .tabBtn {
+            flex: 1;
+            padding: 14px 16px;
+            background-color: #fff;
+            border: none;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #f5f5f5;
+            }
+
+            &.active {
+                color: #9C27B0;
+                font-weight: 600;
+                border-bottom: 2px solid #9C27B0;
+            }
+        }
+    }
+
+    .alertContent {
+        padding: 20px;
+
+        .alertHeader {
+            margin-bottom: 16px;
+
+            .title {
+                font-size: 15px;
+                font-weight: 600;
+                color: #333;
+            }
+        }
+
+        .alertTable {
+            .tableHeader {
+                display: flex;
+                padding: 10px 0;
+                border-bottom: 1px solid #f0f0f0;
+
+                .col {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #666;
+
+                    &.time {
+                        width: 100px;
+                    }
+
+                    &.status {
+                        width: 80px;
+                    }
+
+                    &.desc {
+                        flex: 1;
+                    }
+                }
+            }
+
+            .tableBody {
+                max-height: 250px;
+                overflow-y: auto;
+
+                .tableRow {
+                    display: flex;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #f8f8f8;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    .col {
+                        font-size: 13px;
+
+                        &.time {
+                            width: 100px;
+                            color: #999;
+                        }
+
+                        &.status {
+                            width: 80px;
+                            font-weight: 600;
+                            font-size: 12px;
+
+                            &.error {
+                                color: #F44336;
+                            }
+
+                            &.alarm {
+                                color: #FF9800;
+                            }
+
+                            &.info {
+                                color: #2196F3;
+                            }
+                        }
+
+                        &.desc {
+                            flex: 1;
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.systemPanel {
+            .systemTable {
+                .systemRow {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 12px 0;
+                    border-bottom: 1px solid #f0f0f0;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    .systemLabel {
+                        font-size: 14px;
+                        color: #666;
+                    }
+
+                    .systemValue {
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+                }
+            }
+        }
+
+        &.summaryPanel {
+            .summaryHeader {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 16px;
+
+                .title {
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                .legendWrap {
+                    display: flex;
+                    gap: 16px;
+
+                    .legend {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        font-size: 12px;
+                        color: #666;
+
+                        .dot {
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 50%;
+
+                            &.purple {
+                                background-color: #9C27B0;
+                            }
+
+                            &.orange {
+                                background-color: #FF9800;
+                            }
+
+                            &.green {
+                                background-color: #4CAF50;
+                            }
+
+                            &.red {
+                                background-color: #F44336;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .summaryContent {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .summarySection {
+                    .sectionHeader {
+                        padding: 10px 14px;
+                        border-radius: 6px;
+                        font-size: 13px;
+                        font-weight: 600;
+                        margin-bottom: 12px;
+
+                        &.purple {
+                            background-color: #F3E5F5;
+                            color: #7B1FA2;
+                        }
+
+                        &.gray {
+                            background-color: #F5F5F5;
+                            color: #666;
+                        }
+                    }
+
+                    .missionList {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+
+                        .missionItem {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 12px 14px;
+                            background-color: #fafafa;
+                            border-radius: 8px;
+
+                            .missionInfo {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 4px;
+
+                                .missionName {
+                                    font-size: 14px;
+                                    font-weight: 500;
+                                    color: #333;
+                                }
+
+                                .missionId {
+                                    font-size: 12px;
+                                    color: #999;
+                                }
+                            }
+
+                            .missionStatus {
+                                padding: 4px 10px;
+                                border-radius: 4px;
+                                font-size: 12px;
+                                font-weight: 500;
+
+                                &.warning {
+                                    background-color: #FFF3E0;
+                                    color: #F57C00;
+                                }
+
+                                &.running {
+                                    background-color: #E8F5E9;
+                                    color: #4CAF50;
+                                }
+
+                                &.normal {
+                                    background-color: #E3F2FD;
+                                    color: #2196F3;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
