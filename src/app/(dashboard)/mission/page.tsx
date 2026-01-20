@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import './mission.scss';
-import { Mission, Task, LogEntry } from '../types/type';
+import { Mission, Task, LogEntry } from '../../types/type';
 
 const Page = () => {
     const [statusFilter, setStatusFilter] = useState('전체 상태');
